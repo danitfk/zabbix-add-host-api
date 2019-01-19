@@ -11,8 +11,9 @@ It has been tested with Python 2.7 and it is working. We'll install Python pip, 
 ```
 sudo apt install python-pip
 pip install --upgrade pip
-pip install pyyaml zabbix-api
+pip install pyyaml
 sudo apt-get install python-urllib3
+git clone https://github.com/danitfk/zabbix-add-host-api
 ```
 
 # Usage
