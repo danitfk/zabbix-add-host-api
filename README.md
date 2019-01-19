@@ -21,11 +21,11 @@ sudo apt-get install python-urllib3
 * Simply adapt the config.py file to your needs , depending what system you want to insert the SSL monitoring check to.
 * Use it without providing any port, which means the script checking the certificate from the Zabbix server will go for port 443
 ```
-python zabbix_create_host_api.py cloud.example.com opscl01.example.com 
+python zabbix_create_host_api.py cloud.example.com opscl01.example.com 172.20.16.1
 ```
 
 * Specify a different port and this script will add a MACRO on the Zabbix host that will make the SSL checker to check in that specific port.
 ```
-python zabbix_create_host_api.py cloud.example.com opscl01.example.com 4443
+python zabbix_create_host_api.py cloud.example.com opscl01.example.com 172.20.16.1 4443
 ```
 
