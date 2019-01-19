@@ -24,6 +24,24 @@ git clone https://github.com/danitfk/zabbix-add-host-api
 ```
 python zabbix_create_host_api.py cloud.example.com opscl01.example.com 172.20.16.1
 ```
+## IMPORT MASSIVE OF HOSTS
+If you want import a massive number of hosts it will take much time to run command for single host. To avoid this, You can create an CSV file called **`servers.csv`** with bellow format and run the Bash script **zadd.sh**.
+
+Example format of **servers.csv** :
+
+```
+cloud1.example.com,opscl01.example.com,172.20.16.1
+cloud2.example.com,opscl02.example.com,172.20.16.2
+cloud3.example.com,opscl02.example.com,172.20.16.3
+
+```
+then just run the Bash Script to add hosts in servers.csv
+
+``bash ./zadd.sh``
+
+
+* It doesn't support SSL Port for servers.csv.1
+
 
 * Specify a different port and this script will add a MACRO on the Zabbix host that will make the SSL checker to check in that specific port.
 ```
