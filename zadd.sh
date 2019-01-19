@@ -25,6 +25,8 @@ do
 	host_name=$(echo $HOST | cut -d"," -f1)
 	host_dns=$(echo $HOST | cut -d"," -f2)
 	host_ipaddr=$(echo $HOST | cut -d"," -f3)
-	echo	"	python zabbix_create_host_api.py $host_name $host_dns $host_ipaddr"
+	python zabbix_create_host_api.py "$host_name" "$host_dns" "$host_ipaddr"
 
 done
+
+exit 0
