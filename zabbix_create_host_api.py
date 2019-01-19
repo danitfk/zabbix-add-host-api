@@ -27,6 +27,7 @@ def check_input():
     print ''
     print 'Service name: '+hostname
     print 'Host name: '+host_dns
+    print 'IP Address: '+host_ipaddr
     print 'SSL port: '+ssl_port
     print 'Hostgroup ID: '+host_group_id
     print 'Zabbix Username: '+zabbix_username
@@ -48,16 +49,17 @@ def confirm_choice():
     return answer == "y"
 
 
-if ( len(sys.argv) < 3 ):
+if ( len(sys.argv) < 4 ):
         print 'Usage:'
         print ''
-        print '[user@server]# python zabbix_create_host_api.py [hostname-service-name] [host_dns] [ssl_port]'
+        print '[user@server]# python zabbix_create_host_api.py [hostname-service-name] [host_dns] [host_ipaddr] [ssl_port]'
         print ''
-        print 'Note that third paramether is optional, use it if monitoring cert in a non default port 443'
+        print 'Note that fourth paramether is optional, use it if monitoring cert in a non default port 443'
         sys.exit(1)
 else:
         hostname=sys.argv[1]
         host_dns=sys.argv[2]
+	host_ipaddr=sys.argv[3]
         zabbix_username=raw_input("Insert your Zabbix username:")
         zabbix_password=getpass.getpass()
 
@@ -134,7 +136,7 @@ def create_host(auth_key):
                         "type": 1,
                         "main": 1,
                         "useip": 0,
-                        "ip": "",
+                        "ip": host_ipaddr,
                         "dns": host_dns,
                         "port": "10050"
                     }
@@ -182,7 +184,7 @@ def set_maintenance(auth_key, host_id):
             "params": {
                 "name": 'Adding new SSL monitoring service untill (Through zabbix script)'+str(active_till),
                 "hostids": [ host_id ],
-                "active_since": active_since, 
+                "active_since": active_since,
                 "active_till": active_till,
                 "timeperiods": [
                     {
