@@ -135,7 +135,7 @@ def create_host(auth_key):
                     {
                         "type": 1,
                         "main": 1,
-                        "useip": 0,
+                        "useip": 1,
                         "ip": host_ipaddr,
                         "dns": host_dns,
                         "port": "10050"

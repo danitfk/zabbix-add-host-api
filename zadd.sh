@@ -16,6 +16,7 @@ do
 		echo "Error in line: $line"
 		echo "servers.txt doesn't have proper format"
 		echo "example: cloud.example.com,opscl01.example.com,172.20.16.1"
+		exit 1
 	fi
 
 
@@ -25,7 +26,9 @@ do
 	host_name=$(echo $HOST | cut -d"," -f1)
 	host_dns=$(echo $HOST | cut -d"," -f2)
 	host_ipaddr=$(echo $HOST | cut -d"," -f3)
-	python zabbix_create_host_api.py "$host_name" "$host_dns" "$host_ipaddr"
+	zabbix_user=$(echo $HOST | cut -d"," -f4)
+	zabbix_pass=$(echo $HOST | cut -d"," -f5)
+	python zabbix_create_host_api.py "$host_name" "$host_dns" "$host_ipaddr" "$zabbix_user" "$zabbix_pass"
 	if [ $? -gt 0 ]; then
 		echo "Error on $HOST"
 		exit 1
