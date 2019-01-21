@@ -26,7 +26,10 @@ do
 	host_dns=$(echo $HOST | cut -d"," -f2)
 	host_ipaddr=$(echo $HOST | cut -d"," -f3)
 	python zabbix_create_host_api.py "$host_name" "$host_dns" "$host_ipaddr"
-
+	if [ $? -gt 0 ]; then
+		echo "Error on $HOST"
+		exit 1
+	fi
 done
 
 exit 0
