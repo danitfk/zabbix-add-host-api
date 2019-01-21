@@ -30,9 +30,9 @@ If you want import a massive number of hosts it will take much time to run comma
 Example format of **servers.csv** :
 
 ```
-cloud1.example.com,opscl01.example.com,172.20.16.1
-cloud2.example.com,opscl02.example.com,172.20.16.2
-cloud3.example.com,opscl02.example.com,172.20.16.3
+cloud1.example.com,opscl01.example.com,172.20.16.1,zabbix_user,zabbix_pass
+cloud2.example.com,opscl02.example.com,172.20.16.2,zabbix_user,zabbix_pass
+cloud3.example.com,opscl02.example.com,172.20.16.3,zabbix_user,zabbix_pass
 
 ```
 then just run the Bash Script to add hosts in servers.csv
@@ -40,11 +40,5 @@ then just run the Bash Script to add hosts in servers.csv
 ``bash ./zadd.sh``
 
 
-* It doesn't support SSL Port for servers.csv.1
-
-
-* Specify a different port and this script will add a MACRO on the Zabbix host that will make the SSL checker to check in that specific port.
-```
-python zabbix_create_host_api.py cloud.example.com opscl01.example.com 172.20.16.1 4443
-```
+* It doesn't support SSL Port for servers.csv
 

@@ -60,8 +60,8 @@ else:
         hostname=sys.argv[1]
         host_dns=sys.argv[2]
 	host_ipaddr=sys.argv[3]
-        zabbix_username=raw_input("Insert your Zabbix username:")
-        zabbix_password=getpass.getpass()
+        zabbix_username=sys.argv[4]
+        zabbix_password=sys.argv[5]
 
         # If port not supplied
         if ( len(sys.argv) <= 3):
