@@ -60,8 +60,6 @@ else:
         hostname=sys.argv[1]
         host_dns=sys.argv[2]
 	host_ipaddr=sys.argv[3]
-        zabbix_username=sys.argv[4]
-        zabbix_password=sys.argv[5]
 
         # If port not supplied
         if ( len(sys.argv) <= 3):
@@ -70,6 +68,8 @@ else:
             http_auth_username="notneeded"
             http_auth_password="notneeded"
             template_id=config.template_id
+	    zabbix_username=config.username
+            zabbix_password=config.password
             url=config.zabbix_url
 
             check_input()
